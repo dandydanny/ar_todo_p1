@@ -8,6 +8,10 @@ class List < ActiveRecord::Base
   # before_destroy { |record| Task.destroy_all "list_id = #{self.id}" }
   before_destroy 'Task.destroy_all "list_id = #{self.id}"'
 
+  def add_task(description)
+    self.tasks.create(description: description)
+  end
+
   def self.all_lists #display ALL lists
     all_lists = ""
     num = 1
