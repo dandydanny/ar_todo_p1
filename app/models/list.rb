@@ -38,4 +38,8 @@ class List < ActiveRecord::Base
     formatted_task_list
   end
 
+  def to_s
+    "#{self.name}"
+  end
+
 end

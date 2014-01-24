@@ -1,8 +1,11 @@
+require_relative 'view'
+
 class Controller
   # many arms like Vishnu
 
   def initialize
     @viewer = View.new
+    run
   end
 
   # ARGV stuff
@@ -35,7 +38,8 @@ class Controller
 
   def display_options
     if ARGV[1] == "list"
-      display_list
+      raise "Please input an id: display list 'id#'" if ARGV[2] == nil
+      display_list(ARGV[2].to_i)
     elsif ARGV[1] == "lists"
       display_all_lists
     else
@@ -64,15 +68,13 @@ class Controller
   end
 
 
-  def display_list
-    List.find_by(id: ARGV[2].to_i)
+  def display_list(id)
+    @viewer.output(List.find(id))
+    @viewer.output(List.find(id).get_all_tasks)
   end
 
 
   def display_all_lists
     @viewer.output(List.all_lists)
   end
-
-
-
 end
