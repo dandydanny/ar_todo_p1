@@ -1,4 +1,4 @@
-require_relative '../config'
+# require_relative '../../config/application.rb'
 
 # this is where you should use an ActiveRecord migration to 
 
