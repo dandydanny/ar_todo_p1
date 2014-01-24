@@ -18,4 +18,20 @@ class List < ActiveRecord::Base
     all_lists
   end
 
+  def self.list_by_id(id)
+    self.find_by(id).name
+  end
+
+  def get_all_tasks
+    all_tasks = self.tasks.to_a # array of Task objects
+    formatted_task_list = ""
+    num = 1
+    all_tasks.each do |task|
+      spacer = " " if num < 10
+      formatted_task_list << "#{num}. #{spacer}#{task.to_s}  (task id: #{task.id})\n"
+      num += 1
+    end
+    formatted_task_list
+  end
+
 end

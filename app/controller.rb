@@ -1,6 +1,8 @@
 class Controller
   # many arms like Vishnu
-
+  def initialize
+    @viewer = View.new
+  end
 
   # ARGV stuff
 
@@ -28,12 +30,12 @@ class Controller
   end
 
   def display_list
-    # Use ARGV[2] as id to locate list to display
+    List.find_by(id: ARGV[2].to_i)
   end
 
 
   def display_all_lists
-    List.all_lists
+    @viewer.output(List.all_lists)
   end
 
 

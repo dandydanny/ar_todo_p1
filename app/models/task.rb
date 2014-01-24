@@ -22,6 +22,6 @@ class Task < ActiveRecord::Base
 
   def to_s
     done = self.completed ? "X" : " "
-    "#{self.id}. [#{done}]  #{self.description}"
+    "[#{done}]  #{self.description}"
   end
 end
