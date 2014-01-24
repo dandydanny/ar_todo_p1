@@ -38,15 +38,15 @@ desc "console"
 task "console" do
   # force the database connection now that the models are loaded.
   ActiveRecord::Base.retrieve_connection
- 
+
   # log sql activity to standard output
-  ActiveRecord::Base.logger = Logger.new(STDOUT)
- 
+  # ActiveRecord::Base.logger = Logger.new(STDOUT)
+
   # load any model file found in app/models
   Dir[File.join(File.dirname(__FILE__), 'app/models/*.rb')].each do |model_file|
     require model_file
   end
- 
+
   # start IRB in this context
   require 'irb'
   ARGV.clear
