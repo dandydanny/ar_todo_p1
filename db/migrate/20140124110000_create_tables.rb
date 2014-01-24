@@ -19,3 +19,4 @@ class CreateTables < ActiveRecord::Migration
     end
   end
 end
+# hey dave
