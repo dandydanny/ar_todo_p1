@@ -1,24 +1,22 @@
 class Controller
   # many arms like Vishnu
-
-
   # ARGV stuff
 
-  def sort_first_arg
+  def run
     if ARGV[0] == "new"
-      sort_new_args
+      new_options
     elsif ARGV[0] == "display"
-      sort_display_args
+      display_options
     elsif ARGV[0] == "complete"
-      sort_complete_args
+      complete_options
     elsif ARGV[0] == "delete"
-      sort_delete_args
+      delete_options
     else
       raise "Please use 'new', 'display', 'complete', or 'delete'."
     end
   end
 
-  def sort_new_args
+  def new_options
     if ARGV[2] == "task" && ARGV.size == 4
       List.find(ARGV[4].to_i).add_task(ARGV[3])
       display_list
@@ -30,7 +28,7 @@ class Controller
     end
   end
 
-  def sort_display_args
+  def display_options
     if ARGV[1] == "list"
       display_list
     elsif ARGV[1] == "lists"
@@ -40,7 +38,7 @@ class Controller
     end
   end
 
-  def sort_complete_args
+  def complete_options
     if ARGV[1] == "list" && ARGV[3] == "task" && ARGV.size == 5
       List.find(ARGV[2].to_i).tasks.find(ARGV[4].to_i).complete
       display_list
@@ -49,7 +47,7 @@ class Controller
     end
   end
 
-  def sort_delete_args
+  def delete_options
     if ARGV[1] == "task" && ARGV.size == 3
       Task.destroy(ARGV[2])
       display_list
