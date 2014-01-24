@@ -32,7 +32,7 @@ class List < ActiveRecord::Base
     num = 1
     all_tasks.each do |task|
       spacer = " " if num < 10
-      formatted_task_list << "#{num}. #{spacer}#{task.to_s}  (task id: #{task.id})\n"
+      formatted_task_list << "#{num}. #{spacer}#{task.to_s}\n"
       num += 1
     end
     formatted_task_list
@@ -41,5 +41,4 @@ class List < ActiveRecord::Base
   def to_s
     "#{self.name}"
   end
-
 end

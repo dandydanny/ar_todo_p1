@@ -1,3 +1,17 @@
+#### Potential Redos
+
+Using Relational Callback in our List class we can call destroy on the relationship.
+
+e.g. has many :tasks dependent: destroy
+
+Standardizing the position of ARGVs
+e.g. list always in position 3 == ARGV[-2], list_id always in position 4 == ARGV[-1]
+
+ORRRRRR -- We can simply use Ruby's Options Parser!!! This means we could call ruby todo.rb -l 2 display; OR... ruby todo.rb -l 2 -t 3 complete
+
+Move all string formatting from models to view.
+OR use presenter classes to determine how to present each models. The presenter would be instantiated within the controller and the presenter would talk to the view.
+
 # ActiveRecord TODOs
 
 ## Before You Get Started
